@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <title>Lista de Alumnos</title>
     </head>
@@ -16,14 +17,18 @@
                 </tr>
             </thead>
             <tbody>
-            <tr th:each="alumno : ${alumnos}">
-                <td th:text="${alumno.id}"></td>
-                <td th:text="${alumno.nombre}"></td>
-                <td th:text="${alumno.apellido}"></td>
-                <td th:text="${alumno.edad}"></td>
-                <td th:text="${alumno.dni}"></td>
-            </tr>
+                <tr th:each="alumno : ${alumnos}">
+                    <td th:text="${alumno.id}"></td>
+                    <td th:text="${alumno.nombre}"></td>
+                    <td th:text="${alumno.apellido}"></td>
+                    <td th:text="${alumno.edad}"></td>
+                    <td th:text="${alumno.dni}"></td>
+                </tr>
         </table>
+        <nav>
+            <ul class="pagination" sd:pagination="pager">
+            </ul>
+        </nav>
         <p><a th:href="@{/nuevo}">Añadir Nuevo Alumno</a></p>
     </body>
 </html>
